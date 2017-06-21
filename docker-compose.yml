@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  webapp:
+    build:
+      context: ./webapp
+    ports:
+      - "58080:80"
+
+  vaddy:
+    build:
+      context: ./vaddy
+    links:
+      - webapp:www.example.jp
