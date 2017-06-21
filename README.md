@@ -39,7 +39,7 @@ https://github.com/nomnux/vaddy-privatenet-docker/blob/master/vaddy/privatenet/c
 
 ## 認証ファイルの保存
 
-VAddy の認証ファイルを　https://github.com/nomnux/vaddy-privatenet-docker/blob/master/webapp/html/vaddy-verification-file.html　として保存してください。ファイル名は VAddy から発行された認証ファイルの名前で保存してください。
+VAddy の認証ファイルを　https://github.com/nomnux/vaddy-privatenet-docker/blob/master/webapp/html/vaddy-verification-file.html　　として保存してください。ファイル名は VAddy から発行された認証ファイルの名前で保存してください。
 
 ## Docker コンテナの起動
 
