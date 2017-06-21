@@ -7,11 +7,11 @@ PrivateNet 版 VAddy で Web アプリケーションをスキャンするまで
 * 検査対象の Web アプリケーションを用意する
 * PrivateNet 版 VAddy ツールをインストールする
 
-ローカルの開発環境で作業できるとはいえ、このような環境の構築にはそれなりに手間がかかるものです。私自身、もう少し気軽に、いつでも、誰でも VAddy でスキャンできる環境を用意したいと思い、このような Docker 環境を作ってみました。
+ローカルの開発環境で作業できるとはいえ、このような環境の構築にはそれなりに手間がかかるものです。もっと気軽に、いつでも、誰でも VAddy でスキャンできる環境を用意したいと思い、このような Docker 環境を作ってみました。
 
 気軽に実行できることに重点を置いているため、セキュリティの観点からはあまり望ましくないこともやっています。あくまでも、お試し環境としてご利用ください。
 
-なお、このドキュメントでは PrivateNet 版 VAddy 自体の詳細な設定方法などは割愛してます。PrivateNet 版 VAddy の利用方法は公式ドキュメント(https://vaddy.net/ja/docs/private-step00.html)を参照してください。
+なお、このドキュメントでは PrivateNet 版 VAddy 自体の詳細な設定方法などは割愛しています。PrivateNet 版 VAddy の利用方法は公式ドキュメント(https://vaddy.net/ja/docs/private-step00.html)　を参照してください。
 
 # 必要なもの
 
@@ -20,6 +20,7 @@ PrivateNet 版 VAddy で Web アプリケーションをスキャンするまで
   * Docker コンテナからインターネットへ SSH 接続可能な環境が必要です。
 
 * Docker Compose
+  * docker-compose-1.11.1 で動作確認してます。
   * Compose File のバージョンは 2.1 を利用しています。
 
 # Docker コンテナ構成(Docker Compose サービス構成)
@@ -39,17 +40,20 @@ https://github.com/nomnux/vaddy-privatenet-docker/blob/master/vaddy/privatenet/c
 
 ## 認証ファイルの保存
 
-VAddy の認証ファイルを　https://github.com/nomnux/vaddy-privatenet-docker/blob/master/webapp/html/vaddy-verification-file.html　　として保存してください。ファイル名は VAddy から発行された認証ファイルの名前で保存してください。
+VAddy の認証ファイルを　https://github.com/nomnux/vaddy-privatenet-docker/blob/master/webapp/html/vaddy-verification-file.html　として保存してください。ファイル名は VAddy から発行された認証ファイルの名前で保存してください。
 
 ## Docker コンテナの起動
 
 以下のコマンドを実行することで、　https://vaddy.net/ja/docs/private-step00.html の ＜接続テスト＞ (connect コマンドの実行)までの処理が完了します。Docker コンテナを起動している限り、connect コマンドにより生成されたセッションが継続します。
 
 ```
-$ git clone https://github.com/nomnux/vaddy-privatenet-docker.git
-$ cd vaddy-privatenet-docker
-$ docker-compose up -d
+$ cd vaddy-privatenet-docker (git clone したディレクトリ)
+$ docker-compose up --build --force-recreate -d
 ```
+
+設定ファイルなどを編集した場合は、上記の docker-compose コマンドを同じオプションで再実行することで変更が反映されます。
+
+
 ## VAddy によるクロール
 
 通常の手順でクロールしてください。
