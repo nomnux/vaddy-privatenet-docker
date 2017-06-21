@@ -1,20 +1,26 @@
 # vaddy-privatenet-docker
 
-PrivateNet 版 VAddy(https://github.com/vaddy/go-vaddy) を Docker コンテナ内で実行します。
-PrivateNet 版 VAddy を気軽に動かしてみたい、というような用途に向いています。
-気軽に実行できることに重点を置いているため、セキュリティの観点からはあまり望ましくないこともやっています。
-あくまでも、お試し環境としてご利用ください。
+PrivateNet 版 VAddy(https://github.com/vaddy/go-vaddy) を Docker コンテナ内で実行します。PrivateNet 版 VAddy を気軽に動かしてみたいというような用途に向いています。
+
+PrivateNet 版 VAddy で Web アプリケーションをスキャンするまでには以下のような作業が必要になります。
+
+* 検査対象の Web アプリケーションを用意する
+* PrivateNet 版 VAddy ツールをインストールする
+
+ローカルの開発環境で作業できるとはいえ、このような環境の構築にはそれなりに手間がかかるものです。私自身、もう少し気軽に、いつでも、誰でも VAddy でスキャンできる環境を用意したいと思い、このような Docker 環境を作ってみました。
+
+気軽に実行できることに重点を置いているため、セキュリティの観点からはあまり望ましくないこともやっています。あくまでも、お試し環境としてご利用ください。
 
 なお、このドキュメントでは PrivateNet 版 VAddy 自体の詳細な設定方法などは割愛してます。PrivateNet 版 VAddy の利用方法は公式ドキュメント(https://vaddy.net/ja/docs/private-step00.html)を参照してください。
 
 # 必要なもの
 
 * Docker ホスト
-    * 1.12.6 で動作確認しています。
-    * Docker コンテナからインターネットへ SSH 接続可能な環境が必要です。
+  * 1.12.6 で動作確認しています。
+  * Docker コンテナからインターネットへ SSH 接続可能な環境が必要です。
 
 * Docker Compose
-    * Compose File のバージョンは 2.1 を利用しています。
+  * Compose File のバージョンは 2.1 を利用しています。
 
 # Docker コンテナ構成(Docker Compose サービス構成)
 
@@ -22,8 +28,8 @@ PrivateNet 版 VAddy を気軽に動かしてみたい、というような用�
     * VAddy による検査対象の擬似 Web アプリケーションです。アプリケーションといっても、静的な HTML ファイルを配置しているだけです。最低限の動作確認だけできればよいと考え、このようになっています。
 
 * vaddy
-    * PrivateNet 版 VAddy のコンテナです。インストール作業や初期設定などを Dockerfile で実行しています。
-    * このコンテナから webapp に対して docker-compose.yml で links を指定しており、このコンテナから webapp に対して VAddy によるスキャンが実行されます。
+  * PrivateNet 版 VAddy のコンテナです。インストール作業や初期設定などを Dockerfile で実行しています。
+  * このコンテナから webapp に対して docker-compose.yml で links を指定しており、このコンテナから webapp に対して VAddy によるスキャンが実行されます。
 
 # 使い方
 
@@ -33,7 +39,7 @@ https://github.com/nomnux/vaddy-privatenet-docker/blob/master/vaddy/privatenet/c
 
 ## 認証ファイルの保存
 
-VAddy の認証ファイルを　https://github.com/nomnux/vaddy-privatenet-docker/blob/master/webapp/html/vaddy-verification-file.html　として保存してください。ファイル名部分は VAddy から発行された認証ファイルの名前で保存してください。
+VAddy の認証ファイルを　https://github.com/nomnux/vaddy-privatenet-docker/blob/master/webapp/html/vaddy-verification-file.html　として保存してください。ファイル名は VAddy から発行された認証ファイルの名前で保存してください。
 
 ## Docker コンテナの起動
 
