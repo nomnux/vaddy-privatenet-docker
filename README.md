@@ -20,14 +20,14 @@ PrivateNet 版 VAddy で Web アプリケーションをスキャンするまで
   * Docker コンテナからインターネットへ SSH 接続可能な環境が必要です。
 
 * Docker Compose
-  * docker-compose-1.11.1 で動作確認してます。
+  * docker-compose-1.11.1 で動作確認しています。
   * Compose File のバージョンは 2.1 を利用しています。
 
 # Docker コンテナ構成(Docker Compose サービス構成)
 
 * webapp
   * VAddy による検査対象の擬似 Web アプリケーションです。アプリケーションといっても、静的な HTML ファイルを配置しているだけです。最低限の動作確認だけできればよいと考え、このようにしました。
-  * デフォルトではドメインは www.examle.jp となっています。ドメインを変更したい場合は grep などして置換してください。
+  * デフォルトではドメインは www.examle.jp となっています。ドメインを変更したい場合は grep などして置換してください。
 
 * vaddy
   * PrivateNet 版 VAddy のコンテナです。インストール作業や初期設定などを Dockerfile で実行しています。
