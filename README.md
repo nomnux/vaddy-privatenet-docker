@@ -45,7 +45,7 @@ VAddy の認証ファイルを　https://github.com/nomnux/vaddy-privatenet-dock
 
 ## Docker コンテナの起動
 
-以下のコマンドを実行することで、　https://vaddy.net/ja/docs/private-step00.html の ＜接続テスト＞ (connect コマンドの実行)までの処理が完了します。Docker コンテナを起動している限り、connect コマンドにより生成されたセッションが継続します。
+以下のコマンドを実行することで、　https://vaddy.net/ja/docs/private-step00.html の ＜接続テスト＞ (connect コマンドの実行)までの処理が完了します。Docker コンテナを起動している限り、connect コマンドにより生成されたセッションが維持されます。
 
 ```
 $ cd vaddy-privatenet-docker (git clone したディレクトリ)
